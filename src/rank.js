@@ -8,7 +8,8 @@ const sortRow = (c) => (a, b) => {
   return abs(a[c]) - abs(b[c])
 }
 
-function rank(matrix) {
+function 
+rank(matrix) {
   let A = clone(matrix),
       _rank = 0,
       cols = A[0].length

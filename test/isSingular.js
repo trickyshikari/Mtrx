@@ -1,19 +1,27 @@
-const isSingular = require('../src/isSingular')
+const Mtrx = require('../src/Mtrx.js');
 const assert = require('assert')
+const expect = require('chai').expect
+
+describe("isSingular", function() {            
+    it(`isSingular`, function() {
+        var test = [[2,3],[4,6]];
+        //assert.equal(Mtrx.isSingular(test), true);
+        expect(Mtrx.isSingular(test)).to.equal(true)
+    })  
+
+    it(`isntSingular`, function() {
+        var test = [[2,3],[8,6]];
+        //assert.equal(Mtrx.isSingular(test), false);
+        expect(Mtrx.isSingular(test)).to.equal(false)
+    })  
+
+    it(`isSingular`, function() {
+        var test = [[1,0,0,0],
+                    [0,2,0,0],
+                    [0,0,3,0]]
+        //assert.equal(Mtrx.isSingular(test), true);
+        expect(Mtrx.isSingular(test)).to.equal(true)
+    }) 
 
 
-describe('isSingular', function() {
-  it('return a bool', function() {
-    let a = [[1, 2, 3], [3, 1, 4], [1, 3, 4]]
-    assert.strictEqual(isSingular(a), true)
-
-    let b = [[1, 2, 3], [0, 0, 0], [1, 3, 4]]
-    assert.strictEqual(isSingular(b), true)
-
-    let c = [[2, 0, 3], [4, 0, 6], [1, 3, 4]]
-    assert.strictEqual(isSingular(c), true)
-
-    let d = [[2, 3, 4], [1, 2, 1], [8, 7, 2]]
-    assert.strictEqual(isSingular(d), false)
-  })
 })

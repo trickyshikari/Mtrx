@@ -1,19 +1,23 @@
-const isMtrxLike = require('../src/isMtrxLike')
+const Mtrx = require('../src/Mtrx.js');
 const assert = require('assert')
+const expect = require('chai').expect
 
+describe("isMtrxLike", function() {            
+    it(`isMtrxLike`, function() {
+        var test = Mtrx.eye(4);
+        //assert.equal(Mtrx.isMtrxLike(test), true);
+        expect(Mtrx.isMtrxLike(test)).to.equal(true)
+    })  
 
-describe('isMtrxLike', function() {
-  it('return a bool', function() {
-    let a = [[1, 2, 3], [2, 3, 5]]
-    assert.strictEqual(isMtrxLike(a), true)
+    it(`isntMtrxLike`, function() {
+        var test = [4,5,6];
+        expect(Mtrx.isMtrxLike(test)).to.equal(false)
+        //assert.equal(Mtrx.isMtrxLike(test), false);
+    })  
 
-    let b = [[1, 2, 4], [3, 2]]
-    assert.strictEqual(isMtrxLike(b), false)
-
-    let c = [[undefined, 1, 3], [2, 3, 4]]
-    assert.strictEqual(isMtrxLike(c), false)
-
-    let d = [['a', 2, 3], [3, 2, 4]]
-    assert.strictEqual(isMtrxLike(d), false)
-  })
+    it(`isntMtrxLike`, function() {
+        var test = 4;
+        expect(Mtrx.isMtrxLike(test)).to.equal(false)
+        //equal(Mtrx.isMtrxLike(test), false);
+    }) 
 })

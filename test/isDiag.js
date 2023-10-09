@@ -1,13 +1,19 @@
-const isDiag = require('../src/isDiag')
+const Mtrx = require('../src/Mtrx.js');
 const assert = require('assert')
+const expect = require('chai').expect
 
+describe("isDiag", function() {            
+    it(`isDiag`, function() {
+        var test = Mtrx.diag([1,2,3,4]);
+        //assert.equal(Mtrx.isDiag(test), true);
+        expect(Mtrx.isDiag(test)).to.equal(true)
+    })  
 
-describe('isDiag', function() {
-  it('return a bool', function() {
-    let a = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
-    assert.strictEqual(isDiag(a), true)
-
-    let b = [[0, 1, 3], [0.1, 0, 8], [4, 2, 0]]
-    assert.strictEqual(isDiag(b), false)
-  })
+    it(`isntDiag`, function() {
+        var mtrx = [[1,0,0,0],
+                    [0,2,0,0],
+                    [0,0,3,0]]
+        //assert.equal(Mtrx.isDiag(mtrx), false);
+        expect(Mtrx.isDiag(mtrx)).to.equal(false)
+    })  
 })

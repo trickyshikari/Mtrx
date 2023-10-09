@@ -1,11 +1,20 @@
-const isSameShape = require('../src/isSameShape')
+const Mtrx = require('../src/Mtrx.js');
 const assert = require('assert')
+const expect = require('chai').expect
 
+describe("isSameShape", function() {            
+    it(`isSameShape`, function() {
+        var mtrx = [[0,1],[1,2]]
+        var mtrx2 = [[0,0],[0,0]]
+        expect(Mtrx.isSameShape(mtrx,mtrx2)).to.equal(true)
+        //assert.equal(Mtrx.isSameShape(mtrx,mtrx2), true);
+    })  
 
-describe('isSameShape', function() {
-  it('return a bool', function() {
-    let a = [[1, 2, 3], [2, 3, 4]]
-    let b = [[3, 4, 1], [2, 3, 1]]
-    assert.strictEqual(isSameShape(a, b), true)
-  })
+    it(`isntSameShape`, function() {
+        var mtrx = [[0,1],[1,2]]
+        var mtrx2 = [[4,5,6],[4,5,6]]
+        expect(Mtrx.isSameShape(mtrx,mtrx2)).to.equal(false)
+        //assert.equal(Mtrx.isSameShape(mtrx,mtrx2), false);
+    })  
+
 })
